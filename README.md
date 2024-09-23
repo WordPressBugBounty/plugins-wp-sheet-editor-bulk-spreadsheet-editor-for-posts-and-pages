@@ -1,0 +1,1 @@
+# plugins-wp-sheet-editor-bulk-spreadsheet-editor-for-posts-and-pages
