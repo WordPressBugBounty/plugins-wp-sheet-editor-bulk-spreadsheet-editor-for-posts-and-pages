@@ -7,6 +7,8 @@ if ( !class_exists( 'WPSE_Custom_Post_Types_Teaser' ) ) {
 
         var $post_types = array();
 
+        public $allowed_columns = array();
+
         private function __construct() {
         }
 

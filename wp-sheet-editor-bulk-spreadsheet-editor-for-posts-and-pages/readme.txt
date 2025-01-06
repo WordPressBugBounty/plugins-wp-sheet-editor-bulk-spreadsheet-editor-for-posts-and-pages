@@ -2,7 +2,7 @@
 Contributors: wpsheeteditor,vegacorp,josevega
 Tags: woocommerce, easy digital downloads, events, bulk edit, spreadsheet
 Tested up to: 6.7
-Stable tag: 2.25.15
+Stable tag: 2.25.16
 Requires at least: 3.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -230,6 +230,16 @@ Yes. You can set up the number of posts to save per batch and the waiting betwee
 2. settings page
 
 == Changelog ==
+= V 2.25.16 - 2025-01-07 =
+* CHANGE - WPML - Improve the UI
+* CHANGE - WC Products - Import - Show more columns to match existing products
+* CHANGE - BULK EDITS - Improve UI
+* FIX - WC Products - A column couldn't be renamed
+* FIX - FORMULAS - It only removes one taxonomy term when we select multiple to remove
+* FIX - WC Products - Small bug fixes
+* FIX - CORE - A dropdown used by Gutenberg is not working
+
+
 = V 2.25.15 - 2024-10-26 =
 * CHANGE - CORE - Performance improvements
 * CHANGE - WC Products - General improvements
