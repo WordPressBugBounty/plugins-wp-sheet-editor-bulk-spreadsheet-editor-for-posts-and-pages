@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 /*
   Plugin Name: WP Sheet Editor - Post Types
   Description: Bulk edit posts and pages easily using a beautiful spreadsheet inside WordPress.
-  Version: 2.25.16
+  Version: 2.25.17
   Author: WP Sheet Editor
   Author URI: https://wpsheeteditor.com/?utm_source=wp-admin&utm_medium=plugins-list&utm_campaign=posts
   Plugin URI: https://wpsheeteditor.com/extensions/posts-pages-post-types-spreadsheet/?utm_source=wp-admin&utm_medium=plugins-list&utm_campaign=posts
@@ -123,7 +123,7 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
         }
 
         function after_core_init() {
-            if ( version_compare( VGSE()->version, '2.25.16' ) < 0 ) {
+            if ( version_compare( VGSE()->version, '2.25.17' ) < 0 ) {
                 add_action( 'admin_notices', array($this, 'notify_wrong_core_version') );
                 return;
             }
