@@ -1,8 +1,8 @@
 {
     "name": "wp-sheet-editor-pro",
-    "version": "2.25.17",
+    "version": "2.25.18",
     "vgDistName": "wp-sheet-editor-bulk-spreadsheet-editor-for-posts-and-pages",
-    "vgPreviousVersion": "2.25.17-beta.1",
+    "vgPreviousVersion": "2.25.18-beta.1",
     "sheetEditorModules": {
         "free": [
             "autofill-cells",

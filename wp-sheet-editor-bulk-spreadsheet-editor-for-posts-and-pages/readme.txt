@@ -1,8 +1,8 @@
 === Bulk Edit Posts and Products in Spreadsheet ===
 Contributors: wpsheeteditor,vegacorp,josevega
 Tags: woocommerce, easy digital downloads, events, bulk edit, spreadsheet
-Tested up to: 6.7
-Stable tag: 2.25.17
+Tested up to: 6.8
+Stable tag: 2.25.18
 Requires at least: 3.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -230,6 +230,14 @@ Yes. You can set up the number of posts to save per batch and the waiting betwee
 2. settings page
 
 == Changelog ==
+= V 2.25.18 - 2025-05-23 =
+* CHANGE - ACF - Minor improvements
+* CHANGE - CORE - UI improvements
+* FIX - WPML - The filter "translation missing in language" is not working for languages with dialects
+* FIX - WC Products - Small bug fixes
+* FIX - CORE - General bug fixes
+
+
 = V 2.25.17 - 2025-01-28 =
 * CHANGE - FORMULAS - Allow to reference columns by name and not just by key
 * CHANGE - CORE - Minor UI improvements
