@@ -1,9 +1,9 @@
 === Bulk Edit Posts and Products in Spreadsheet ===
 Contributors: wpsheeteditor,vegacorp,josevega
 Tags: woocommerce, easy digital downloads, events, bulk edit, spreadsheet
-Tested up to: 6.8
-Stable tag: 2.25.19
-Requires at least: 3.6
+Tested up to: 6.9
+Stable tag: 2.26.1
+Requires at least: 4.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -230,6 +230,27 @@ Yes. You can set up the number of posts to save per batch and the waiting betwee
 2. settings page
 
 == Changelog ==
+= V 2.26.1 - 2026-01-18 =
+* FIX - CORE - Some columns can't be enabled
+* FIX - CORE - Columns manager - long lists are not showing all the columns
+* FIX - CORE - Toolbar dropdowns are not showing all the items when there are too many items
+* FIX - CORE - Some columns are not being generated
+
+
+= V 2.26.0 - 2026-01-06 =
+* NEW - IMPORTS - Allow to import Excel files
+* NEW - EXPORTS - Allow to export Excel files
+* CHANGE - CORE - UI improvements
+* CHANGE - FILTERS - Improve the search
+* CHANGE - WC Products - Improve the handling of default attributes
+* CHANGE - CORE - Improve performance
+* CHANGE - BULK EDIT - Allow to edit selected cells
+* CHANGE - TAXONOMIES - Improve attributes search
+* COLUMNS VISIBILITY - Allow to sort columns in the spreadsheet itself
+* CHANGE - CORE - Improve the extensions installer
+* FIX - CORE - General bug fixes
+
+
 = V 2.25.19 - 2025-07-11 =
 * CHANGE - CORE - UI improvements
 * CHANGE - WC Coupons - Allow to use custom separator for product columns

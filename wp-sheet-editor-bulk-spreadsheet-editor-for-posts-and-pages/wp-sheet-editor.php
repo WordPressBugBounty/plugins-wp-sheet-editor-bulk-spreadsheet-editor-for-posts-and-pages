@@ -2,22 +2,20 @@
 
 defined( 'ABSPATH' ) || exit;
 /*
-  Plugin Name: WP Sheet Editor - Post Types
-  Description: Bulk edit posts and pages easily using a beautiful spreadsheet inside WordPress.
-  Version: 2.25.19
-  Author: WP Sheet Editor
-  Author URI: https://wpsheeteditor.com/?utm_source=wp-admin&utm_medium=plugins-list&utm_campaign=posts
-  Plugin URI: https://wpsheeteditor.com/extensions/posts-pages-post-types-spreadsheet/?utm_source=wp-admin&utm_medium=plugins-list&utm_campaign=posts
-  License:     GPL2
-  License URI: https://www.gnu.org/licenses/gpl-2.0.html
-  WC requires at least: 4.0
-  WC tested up to: 9.9
-  Text Domain: vg_sheet_editor_posts
-  Domain Path: /lang
+	Plugin Name: WP Sheet Editor - Post Types
+	Description: Bulk edit posts and pages easily using a beautiful spreadsheet inside WordPress.
+	Version: 2.26.1
+	Author: WP Sheet Editor
+	Author URI: https://wpsheeteditor.com/?utm_source=wp-admin&utm_medium=plugins-list&utm_campaign=posts
+	Plugin URI: https://wpsheeteditor.com/extensions/posts-pages-post-types-spreadsheet/?utm_source=wp-admin&utm_medium=plugins-list&utm_campaign=posts
+	License:     GPL2
+	License URI: https://www.gnu.org/licenses/gpl-2.0.html
+	Requires at least: 4.7
+	WC requires at least: 4.0
+	WC tested up to: 10.4.3
+	Text Domain: vg_sheet_editor_posts
+	Domain Path: /lang
 */
-if ( isset( $_GET['wpse_troubleshoot8987'] ) ) {
-    return;
-}
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -39,11 +37,11 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
     class WP_Sheet_Editor_Dist {
         private static $instance = false;
 
-        var $modules_controller = null;
+        public $modules_controller = null;
 
         public $textname = 'vg_sheet_editor_posts';
 
-        var $sheets_bootstrap = null;
+        public $sheets_bootstrap = null;
 
         private function __construct() {
         }
@@ -61,11 +59,15 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
 
         function notify_wrong_core_version() {
             $plugin_data = get_plugin_data( __FILE__, false, false );
+            // Replace with VGSE()->render_message_update_all_wpse_plugins( $plugin_data['Name'] ); in the future
             ?>
-			<div class="notice notice-error">
-				<p><?php 
-            _e( 'Please update the WP Sheet Editor plugin and all its extensions to the latest version. The features of the plugin "' . $plugin_data['Name'] . '" will be disabled temporarily because it is the newest version and it conflicts with old versions of other WP Sheet Editor plugins. The features will be enabled automatically after you install the updates.', WP_Sheet_Editor_Dist::get_instance()->textname );
-            ?></p>
+			<div class="notice notice-error wpse-notice">
+				<p>
+				<?php 
+            // translators: 1: plugin name
+            printf( esc_html__( 'Please update the WP Sheet Editor plugin and all its extensions to the latest version. The features of the plugin "%s" will be disabled temporarily because it is the newest version and it conflicts with old versions of other WP Sheet Editor plugins. The features will be enabled automatically after you install the updates.', 'vg_sheet_editor' ), esc_html( $plugin_data['Name'] ) );
+            ?>
+				</p>
 			</div>
 			<?php 
         }
@@ -80,7 +82,7 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
             add_action( 'before_woocommerce_init', function () {
                 if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
                     $main_file = __FILE__;
-                    $parent_dir = dirname( dirname( $main_file ) );
+                    $parent_dir = dirname( $main_file, 2 );
                     $new_path = str_replace( $parent_dir, '', $main_file );
                     $new_path = wp_normalize_path( ltrim( $new_path, '\\/' ) );
                     \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', $new_path, true );
@@ -89,7 +91,7 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
         }
 
         function after_init() {
-            load_plugin_textdomain( $this->textname, false, basename( dirname( __FILE__ ) ) . '/lang/' );
+            load_plugin_textdomain( $this->textname, false, basename( __DIR__ ) . '/lang/' );
         }
 
         /**
@@ -123,7 +125,7 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
         }
 
         function after_core_init() {
-            if ( version_compare( VGSE()->version, '2.25.19' ) < 0 ) {
+            if ( version_compare( VGSE()->version, '2.26.1' ) < 0 ) {
                 add_action( 'admin_notices', array($this, 'notify_wrong_core_version') );
                 return;
             }
@@ -149,7 +151,7 @@ if ( !class_exists( 'WP_Sheet_Editor_Dist' ) ) {
             }
             $editor->args['toolbars']->register_item( 'wpse_license', array(
                 'type'                  => 'button',
-                'content'               => __( 'My license', WP_Sheet_Editor_Dist::get_instance()->textname ),
+                'content'               => esc_html__( 'My license', WP_Sheet_Editor_Dist::get_instance()->textname ),
                 'extra_html_attributes' => ' target="_blank" ',
                 'url'                   => vgse_freemius()->get_account_url(),
                 'toolbar_key'           => 'secondary',

@@ -5,7 +5,7 @@ if ( !class_exists( 'WPSE_Custom_Post_Types_Teaser' ) ) {
     class WPSE_Custom_Post_Types_Teaser {
         private static $instance = false;
 
-        var $post_types = array();
+        public $post_types = array();
 
         public $allowed_columns = array();
 
@@ -25,8 +25,6 @@ if ( !class_exists( 'WPSE_Custom_Post_Types_Teaser' ) ) {
                 'menu_order',
                 'category'
             );
-            // We will allow the post types very late to allow other wpse plugins to register their own post types
-            update_option( 'vgse_can_edit_cpt_free', 1 );
             add_filter( 'vg_sheet_editor/allowed_post_types', array($this, 'allow_all_post_types'), 99 );
             add_action( 'vg_sheet_editor/editor/register_columns', array($this, 'filter_columns_settings'), 99 );
         }
@@ -41,6 +39,8 @@ if ( !class_exists( 'WPSE_Custom_Post_Types_Teaser' ) ) {
          * @return array
          */
         function filter_columns_settings( $editor ) {
+            // We will allow the post types very late to allow other wpse plugins to register their own post types
+            update_option( 'vgse_can_edit_cpt_free', 1 );
             $post_type = $editor->args['provider'];
             if ( !in_array( $post_type, $this->post_types, true ) ) {
                 return;
