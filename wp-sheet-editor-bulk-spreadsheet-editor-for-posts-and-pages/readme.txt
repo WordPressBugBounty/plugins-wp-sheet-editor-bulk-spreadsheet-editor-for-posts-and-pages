@@ -1,8 +1,8 @@
 === Bulk Edit Posts and Products in Spreadsheet ===
 Contributors: wpsheeteditor,vegacorp,josevega
 Tags: woocommerce, easy digital downloads, events, bulk edit, spreadsheet
-Tested up to: 7.0
-Stable tag: 2.27.0
+Tested up to: 7.1
+Stable tag: 2.27.1
 Requires at least: 4.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -230,6 +230,12 @@ Yes. You can set up the number of posts to save per batch and the waiting betwee
 2. settings page
 
 == Changelog ==
+= V 2.27.1 - 2026-10-21 =
+* Updated Freemius SDK to the latest version
+* FIX - FORMULAS - Append and prepend bulk edits are applied incorrectly when adding multiple taxonomy terms
+* FIX - ACF - Improve the handling of checkboxes
+
+
 = V 2.27.0 - 2026-07-09 =
 * NEW - COLUMNS MANAGER - Add data validation options
 * NEW - CORE - Added "no conflict mode"
